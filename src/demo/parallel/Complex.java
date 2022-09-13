@@ -45,7 +45,15 @@ package demo.parallel;
  * @author Alexander Kouznetsov, Tristan Yan
  */
 public class Complex {
-    
+
+    public double getRe() {
+        return re;
+    }
+
+    public double getIm() {
+        return im;
+    }
+
     private double re;   // the real part
     private double im;   // the imaginary part
 
@@ -93,7 +101,7 @@ public class Complex {
 
     public Complex divide(Complex b){
         re = (re * b.re + im * b.im) / (b.re * b.re + b.im * b.im);
-        im = (im * b.re - re * b.im) / (b.re * b.re + b.im * b.im);
+        im = (b.re * im - re * b.im)/(b.re*b.re+b.im*b.im);
         return this;
     }
     /**
